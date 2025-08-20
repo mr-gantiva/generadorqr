@@ -9,6 +9,11 @@
     <style>
         body {
             background-color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            ;
         }
 
         .lds-spinner,
@@ -18,7 +23,7 @@
         }
 
         .lds-spinner {
-            color: currentColor;
+            color: #ffffff;
             display: inline-block;
             position: relative;
             width: 80px;
@@ -138,8 +143,10 @@
 
         var url = document.location.href;
         var k = url.substr(url.lastIndexOf("k=") + 2);
+
         if (k) {
             fetch(AS_URL_BASE + '?k=' + k)
+                .then(r => r.text())
                 .then((r) => {
                     console.log(r);
                     //document.write(r);
